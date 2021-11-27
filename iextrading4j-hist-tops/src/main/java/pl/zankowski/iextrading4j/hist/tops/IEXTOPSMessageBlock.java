@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.hist.api.message.IEXMessage;
 import pl.zankowski.iextrading4j.hist.api.message.IEXMessageHeader;
 import pl.zankowski.iextrading4j.hist.api.message.IEXSegment;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXOperationalHaltStatusMessage;
+import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXRetailLiquidityIndicatorMessage;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXSecurityDirectoryMessage;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXShortSalePriceTestStatusMessage;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXSystemEventMessage;
@@ -64,6 +65,8 @@ public class IEXTOPSMessageBlock extends IEXSegment {
                 return IEXShortSalePriceTestStatusMessage.createIEXMessage(bytes);
             case AUCTION_INFORMATION:
                 return IEXAuctionInformationMessage.createIEXMessage(bytes);
+            case RETAIL_LIQUIDITY_INDICATOR:
+                return IEXRetailLiquidityIndicatorMessage.createIEXMessage(bytes);
             default:
                 throw new IllegalArgumentException("Failed to create IEX Message. Message type not supported: " + messageType);
         }

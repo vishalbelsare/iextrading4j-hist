@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXOperationalHaltStatusMessage;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.field.IEXOperationalHaltStatus;
@@ -11,10 +11,10 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.administrative.IEXOperationalHaltStatusMessage.createIEXMessage;
 
-public class IEXOperationalHaltStatusMessageTest extends ExtendedUnitTestBase {
+class IEXOperationalHaltStatusMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testIEXOperationalHaltStatusMessage() throws IOException {
+    void testIEXOperationalHaltStatusMessage() throws IOException {
         final byte[] packet = loadPacket("IEXOperationalHaltStatusMessage.dump");
 
         final IEXOperationalHaltStatusMessage message = createIEXMessage(packet);

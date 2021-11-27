@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXSecurityDirectoryMessage;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.administrative.IEXSecurityDirectoryMessage.createIEXMessage;
 
-public class IEXSecurityDirectoryMessageTest extends ExtendedUnitTestBase {
+class IEXSecurityDirectoryMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testIEXSecurityDirectoryMessage() throws IOException {
+    void testIEXSecurityDirectoryMessage() throws IOException {
         final byte[] packet = loadPacket("IEXSecurityDirectoryMessage.dump");
 
         final IEXSecurityDirectoryMessage message = createIEXMessage(packet);

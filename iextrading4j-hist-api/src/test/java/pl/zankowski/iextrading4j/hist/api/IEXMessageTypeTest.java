@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXMessageTypeTest {
+class IEXMessageTypeTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXMessageType value = IEXMessageType.OFFICIAL_PRICE_MESSAGE;
 
         final IEXMessageType result = IEXMessageType.getMessageType(value.getCode());
@@ -15,9 +16,9 @@ public class IEXMessageTypeTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXMessageType.getMessageType((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class, () -> IEXMessageType.getMessageType((byte) 0x11));
     }
 
 }

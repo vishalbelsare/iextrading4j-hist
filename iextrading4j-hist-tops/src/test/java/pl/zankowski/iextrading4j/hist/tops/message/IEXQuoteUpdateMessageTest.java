@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.hist.tops.message;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
@@ -13,11 +13,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.tops.message.builder.IEXQuoteUpdateMessageDataBuilder.defaultQuoteMessage;
 import static pl.zankowski.iextrading4j.hist.tops.message.builder.IEXQuoteUpdateMessageDataBuilder.quoteMessage;
 
-public class IEXQuoteUpdateMessageTest {
+class IEXQuoteUpdateMessageTest {
 
-    @Ignore
+    @Disabled
     @Test
-    public void shouldSuccessfullyCreateQuoteUpdateInstance() {
+    void shouldSuccessfullyCreateQuoteUpdateInstance() {
         final IEXMessageType messageType = IEXMessageType.QUOTE_UPDATE;
         final byte messageFlag = -64;
         final long timestamp = 123456789L;
@@ -42,9 +42,9 @@ public class IEXQuoteUpdateMessageTest {
         assertThat(iexQuoteUpdateMessage.getAskSize()).isEqualTo(askSize);
     }
 
-    @Ignore
+    @Disabled
     @Test
-    public void testIsPrePostMarketSession() {
+    void testIsPrePostMarketSession() {
         final IEXQuoteUpdateMessage iexQuoteUpdateMessage = quoteMessage()
                 .withFlag((byte) -96)
                 .build();
@@ -54,14 +54,14 @@ public class IEXQuoteUpdateMessageTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXQuoteUpdateMessage.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(defaultQuoteMessage())
                 .verify();
     }

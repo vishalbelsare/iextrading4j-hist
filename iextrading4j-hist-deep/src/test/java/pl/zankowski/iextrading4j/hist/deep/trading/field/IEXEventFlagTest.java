@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.deep.trading.field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXEventFlagTest {
+class IEXEventFlagTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXEventFlag value = IEXEventFlag.ORDER_BOOK_IS_PROCESSING_EVENT;
 
         final IEXEventFlag result = IEXEventFlag.getEventFlag(value.getCode());
@@ -15,9 +16,9 @@ public class IEXEventFlagTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXEventFlag.getEventFlag((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class, () -> IEXEventFlag.getEventFlag((byte) 0x11));
     }
 
 }

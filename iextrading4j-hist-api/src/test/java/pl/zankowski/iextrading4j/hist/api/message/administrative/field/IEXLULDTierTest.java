@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api.message.administrative.field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXLULDTierTest {
+class IEXLULDTierTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXLULDTier value = IEXLULDTier.NOT_APPLICABLE;
 
         final IEXLULDTier result = IEXLULDTier.getLULDTier(value.getCode());
@@ -15,9 +16,9 @@ public class IEXLULDTierTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXLULDTier.getLULDTier((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class, () -> IEXLULDTier.getLULDTier((byte) 0x11));
     }
 
 }

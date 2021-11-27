@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.hist.api.message.auction;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
@@ -12,10 +12,10 @@ import pl.zankowski.iextrading4j.hist.api.util.IEXByteTestUtil;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.auction.builder.IEXAuctionInformationMessageDataBuilder.defaultAuctionMessage;
 
-public class IEXAuctionInformationMessageTest {
+class IEXAuctionInformationMessageTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         final IEXAuctionType auctionType = IEXAuctionType.HALT_AUCTION;
         final long timestamp = 1494855059287436131L;
         final String symbol = "SNAP";
@@ -55,14 +55,14 @@ public class IEXAuctionInformationMessageTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXAuctionInformationMessage.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(defaultAuctionMessage())
                 .verify();
     }

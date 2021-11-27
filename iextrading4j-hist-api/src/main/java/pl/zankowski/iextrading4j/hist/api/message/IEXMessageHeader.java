@@ -124,8 +124,8 @@ public class IEXMessageHeader {
         return "IEXMessageHeader{" +
                 "version=" + version +
                 ", messageProtocolID=" + messageProtocolID +
-                ", channelID=" + channelID +
-                ", sessionID=" + sessionID +
+                ", channelID=" + Integer.toUnsignedString(channelID) +
+                ", sessionID=" + Integer.toUnsignedString(sessionID) +
                 ", payloadLength=" + payloadLength +
                 ", messageCount=" + messageCount +
                 ", streamOffset=" + streamOffset +

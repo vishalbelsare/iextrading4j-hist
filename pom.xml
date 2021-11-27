@@ -56,10 +56,10 @@
         <nexus.staging.maven.plugin>1.6.8</nexus.staging.maven.plugin>
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
-        <jmh.version>1.29</jmh.version>
-        <junit.version>4.13.2</junit.version>
-        <equalsverifier.version>3.5.5</equalsverifier.version>
-        <assertj.version>3.19.0</assertj.version>
+        <jmh.version>1.33</jmh.version>
+        <junit.version>5.8.1</junit.version>
+        <equalsverifier.version>3.7.2</equalsverifier.version>
+        <assertj.version>3.21.0</assertj.version>
     </properties>
 
     <dependencyManagement>
@@ -107,7 +107,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>30.1.1-jre</version>
+                <version>31.0.1-jre</version>
             </dependency>
 
             <dependency>
@@ -123,8 +123,22 @@
             </dependency>
 
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>

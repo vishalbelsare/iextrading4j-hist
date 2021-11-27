@@ -1,15 +1,15 @@
 package pl.zankowski.iextrading4j.hist.api.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.util.IEXByteTestUtil;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.builder.IEXMessageHeaderDataBuilder.defaultMessageHeader;
 
-public class IEXMessageHeaderTest {
+class IEXMessageHeaderTest {
 
     @Test
-    public void shouldSuccessfullyCreateMessageHeader() {
+    void shouldSuccessfullyCreateMessageHeader() {
         final byte version = 1;
         final byte reserved = 1;
         final IEXMessageProtocol messageProtocolId = IEXMessageProtocol.TOPS_1_5;
@@ -38,7 +38,7 @@ public class IEXMessageHeaderTest {
     }
 
     @Test
-    public void shouldTwoInstancesWithSameValuesBeEqual() {
+    void shouldTwoInstancesWithSameValuesBeEqual() {
         final IEXMessageHeader iexMessageHeader_1 = defaultMessageHeader();
         final IEXMessageHeader iexMessageHeader_2 = defaultMessageHeader();
 

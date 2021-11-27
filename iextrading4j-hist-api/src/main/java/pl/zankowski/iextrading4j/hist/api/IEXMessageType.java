@@ -20,7 +20,8 @@ public enum IEXMessageType implements IEXByteEnum {
     PRICE_LEVEL_UPDATE_BUY((byte) 0x38),
     PRICE_LEVEL_UPDATE_SELL((byte) 0x35),
     OFFICIAL_PRICE_MESSAGE((byte) 0x58),
-    AUCTION_INFORMATION((byte) 0x41);
+    AUCTION_INFORMATION((byte) 0x41),
+    RETAIL_LIQUIDITY_INDICATOR((byte) 0x49);
 
     private static final Map<Byte, IEXMessageType> LOOKUP = new HashMap<>();
 

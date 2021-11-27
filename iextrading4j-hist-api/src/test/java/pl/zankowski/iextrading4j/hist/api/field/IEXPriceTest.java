@@ -1,14 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api.field;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXPriceTest {
+class IEXPriceTest {
 
     @Test
-    public void shouldSuccessfullyCreateInstanceThroughConstructor() {
+    void shouldSuccessfullyCreateInstanceThroughConstructor() {
         final long number = 12345678L;
         final IEXPrice iexPrice = new IEXPrice(number);
 
@@ -16,7 +16,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void shouldProperlyFormatPrice() {
+    void shouldProperlyFormatPrice() {
         final long number = 1234567;
         final IEXPrice iexPrice = new IEXPrice(number);
 
@@ -24,7 +24,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void twoObjectsShouldBeEqualWithTheSameNumberInside() {
+    void twoObjectsShouldBeEqualWithTheSameNumberInside() {
         final long number = 43215678L;
         final IEXPrice iexPrice_1 = new IEXPrice(number);
         final IEXPrice iexPrice_2 = new IEXPrice(number);
@@ -34,7 +34,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void compareShouldReturnOneForBiggerNumber() {
+    void compareShouldReturnOneForBiggerNumber() {
         final long biggerNumber = 12345678L;
         final long smallerNumber = 1234567L;
 
@@ -45,7 +45,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void compareShouldReturnMinusOneForSmallerNumber() {
+    void compareShouldReturnMinusOneForSmallerNumber() {
         final long biggerNumber = 12345678L;
         final long smallerNumber = 1234567L;
 
@@ -56,7 +56,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void compareShouldReturnZeroForEqualsNumbers() {
+    void compareShouldReturnZeroForEqualsNumbers() {
         final long number = 12345L;
 
         final IEXPrice iexPrice_1 = new IEXPrice(number);
@@ -66,7 +66,7 @@ public class IEXPriceTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXPrice.class)
                 .usingGetClass()
                 .verify();

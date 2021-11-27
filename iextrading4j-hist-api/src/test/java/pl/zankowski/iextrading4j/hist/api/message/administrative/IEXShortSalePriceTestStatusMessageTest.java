@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.hist.api.message.administrative;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.field.IEXDetail;
@@ -11,10 +11,10 @@ import pl.zankowski.iextrading4j.hist.api.util.IEXByteTestUtil;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.administrative.builder.IEXShortSalePriceTestStatusMessageDataBuilder.defaultShortSaleMessage;
 
-public class IEXShortSalePriceTestStatusMessageTest {
+class IEXShortSalePriceTestStatusMessageTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         final IEXShortSalePriceTestStatus shortSalePriceTestStatus = IEXShortSalePriceTestStatus.PRICE_TEST_IN_EFFECT;
         final long timestamp = 1494855059287436131L;
         final String symbol = "SNAP";
@@ -32,14 +32,14 @@ public class IEXShortSalePriceTestStatusMessageTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXShortSalePriceTestStatusMessage.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(defaultShortSaleMessage())
                 .verify();
     }

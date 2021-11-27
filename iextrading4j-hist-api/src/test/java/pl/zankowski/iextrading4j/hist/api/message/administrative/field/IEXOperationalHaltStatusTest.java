@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api.message.administrative.field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXOperationalHaltStatusTest {
+class IEXOperationalHaltStatusTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXOperationalHaltStatus value = IEXOperationalHaltStatus.NOT_OPERATIONAL_HALTED;
 
         final IEXOperationalHaltStatus result = IEXOperationalHaltStatus.getOperationalHaltStatus(value.getCode());
@@ -15,9 +16,10 @@ public class IEXOperationalHaltStatusTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXOperationalHaltStatus.getOperationalHaltStatus((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class,
+                () -> IEXOperationalHaltStatus.getOperationalHaltStatus((byte) 0x11));
     }
 
 }

@@ -1,8 +1,7 @@
 package pl.zankowski.iextrading4j.hist.api.message.administrative;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
@@ -11,12 +10,11 @@ import pl.zankowski.iextrading4j.hist.api.util.IEXByteTestUtil;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.administrative.builder.IEXSecurityDirectoryMessageDataBuilder.defaultDirectoryMessage;
-import static pl.zankowski.iextrading4j.hist.api.message.administrative.builder.IEXSecurityDirectoryMessageDataBuilder.directoryMessage;
 
-public class IEXSecurityDirectoryMessageTest {
+class IEXSecurityDirectoryMessageTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         final byte securityDirectoryFlag = (byte) -64;
         final long timestamp = 1494855059287436131L;
         final String symbol = "SNAP";
@@ -38,14 +36,14 @@ public class IEXSecurityDirectoryMessageTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXSecurityDirectoryMessage.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(defaultDirectoryMessage())
                 .verify();
     }

@@ -2,6 +2,9 @@ package pl.zankowski.iextrading4j.hist.api.util;
 
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public class IEXByteConverter {
 
     private IEXByteConverter() {
@@ -26,6 +29,14 @@ public class IEXByteConverter {
         );
     }
 
+    public static byte[] toByteArray(int value) {
+        return new byte[]{
+                (byte) value,
+                (byte) (value >> 8 & 0xFF),
+                (byte) (value >> 16 & 0xFF),
+                (byte) (value >> 24 & 0xFF)};
+    }
+
     public static int convertBytesToUnsignedShort(final byte[] bytes) {
         return convertBytesToShort(bytes) & 0xffff;
     }
@@ -33,7 +44,7 @@ public class IEXByteConverter {
     public static short convertBytesToShort(final byte[] bytes) {
         return (short) (
                 (0xff & bytes[1]) << 8 |
-                (0xff & bytes[0]) << 0);
+                        (0xff & bytes[0]) << 0);
     }
 
     public static String convertBytesToString(final byte[] bytes) {
@@ -44,4 +55,14 @@ public class IEXByteConverter {
         return new IEXPrice(convertBytesToLong(bytes));
     }
 
+    public static byte[] convertToRightPaddedString(final String value, final int size) {
+        byte[] outputArray = new byte[size];
+        Arrays.fill(outputArray, (byte) ' ');
+        final byte[] valueArray = value.getBytes(StandardCharsets.UTF_8);
+        if (valueArray.length > outputArray.length) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        System.arraycopy(valueArray, 0, outputArray, 0, valueArray.length);
+        return outputArray;
+    }
 }

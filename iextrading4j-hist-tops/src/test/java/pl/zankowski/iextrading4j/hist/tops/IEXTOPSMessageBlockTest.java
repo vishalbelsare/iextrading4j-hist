@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.tops;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.message.IEXSegment;
 import pl.zankowski.iextrading4j.hist.api.message.builder.IEXMessageHeaderDataBuilder;
 import pl.zankowski.iextrading4j.hist.api.message.trading.IEXTradeMessage;
@@ -13,10 +13,10 @@ import java.nio.ByteBuffer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXTOPSMessageBlockTest {
+class IEXTOPSMessageBlockTest {
 
     @Test
-    public void shouldSuccessfullyCreateMessageBlockInstance() {
+    void shouldSuccessfullyCreateMessageBlockInstance() {
         final IEXMessageHeaderDataBuilder messageHeaderBuilder = IEXMessageHeaderDataBuilder.messageHeader()
                 .withMessageCount((short) 2);
         final IEXTradeMessageDataBuilder tradeMessageBuilder = IEXTradeMessageDataBuilder.tradeMessage();

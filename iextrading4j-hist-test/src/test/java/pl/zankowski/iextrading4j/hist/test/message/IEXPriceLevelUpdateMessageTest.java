@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 import pl.zankowski.iextrading4j.hist.deep.trading.IEXPriceLevelUpdateMessage;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.deep.trading.IEXPriceLevelUpdateMessage.createIEXMessage;
 
-public class IEXPriceLevelUpdateMessageTest extends ExtendedUnitTestBase {
+class IEXPriceLevelUpdateMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testIEXPriceLevelUpdateMessage() throws IOException {
+    void testIEXPriceLevelUpdateMessage() throws IOException {
         final byte[] packet = loadPacket("IEXPriceLevelUpdateMessage.dump");
 
         final IEXPriceLevelUpdateMessage message = createIEXMessage(IEXMessageType.PRICE_LEVEL_UPDATE_BUY, packet);

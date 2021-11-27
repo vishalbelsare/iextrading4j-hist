@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.IEXTradingStatusMessage;
 import pl.zankowski.iextrading4j.hist.api.message.administrative.field.IEXTradingStatus;
@@ -11,10 +11,10 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.administrative.IEXTradingStatusMessage.createIEXMessage;
 
-public class IEXTradingStatusMessageTest extends ExtendedUnitTestBase {
+class IEXTradingStatusMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testIEXTradingStatusMessage() throws IOException {
+    void testIEXTradingStatusMessage() throws IOException {
         final byte[] packet = loadPacket("IEXTradingStatusMessage.dump");
 
         final IEXTradingStatusMessage message = createIEXMessage(packet);

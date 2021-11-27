@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.api.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.builder.IEXMessageHeaderDataBuilder.defaultMessageHeader;
 import static pl.zankowski.iextrading4j.hist.api.message.trading.builder.IEXTradeMessageDataBuilder.defaultTradeMessage;
 
-public class IEXSegmentTest {
+class IEXSegmentTest {
 
     @Test
-    public void shouldSuccessfullyCreateSegmentInstance() {
+    void shouldSuccessfullyCreateSegmentInstance() {
         final IEXMessageHeader iexMessageHeader = defaultMessageHeader();
         final List<IEXMessage> iexMessageList = asList(defaultTradeMessage(), defaultTradeMessage());
 
@@ -23,7 +23,7 @@ public class IEXSegmentTest {
     }
 
     @Test
-    public void shouldTwoInstancesWithSameValuesBeEqual() {
+    void shouldTwoInstancesWithSameValuesBeEqual() {
         final IEXMessageHeader iexMessageHeader = defaultMessageHeader();
         final List<IEXMessage> iexMessageList = asList(defaultTradeMessage(), defaultTradeMessage());
 

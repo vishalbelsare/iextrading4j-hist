@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 import pl.zankowski.iextrading4j.hist.api.message.auction.IEXAuctionInformationMessage;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.hist.api.message.auction.IEXAuctionInformationMessage.createIEXMessage;
 
-public class IEXAuctionInformationMessageTest extends ExtendedUnitTestBase {
+class IEXAuctionInformationMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testIEXAuctionInformationMessage() throws IOException {
+    void testIEXAuctionInformationMessage() throws IOException {
         final byte[] packet = loadPacket("IEXAuctionInformationMessage.dump");
 
         final IEXAuctionInformationMessage message = createIEXMessage(packet);

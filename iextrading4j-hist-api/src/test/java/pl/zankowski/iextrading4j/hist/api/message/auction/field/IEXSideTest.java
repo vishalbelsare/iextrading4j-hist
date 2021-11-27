@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api.message.auction.field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXSideTest {
+class IEXSideTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXSide value = IEXSide.SELL_IMBALANCE;
 
         final IEXSide result = IEXSide.getSide(value.getCode());
@@ -15,9 +16,9 @@ public class IEXSideTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXSide.getSide((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class, () -> IEXSide.getSide((byte) 0x11));
     }
 
 }

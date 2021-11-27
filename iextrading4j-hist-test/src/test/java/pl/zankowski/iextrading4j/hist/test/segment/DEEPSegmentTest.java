@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.segment;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 import pl.zankowski.iextrading4j.hist.api.message.IEXMessage;
@@ -15,10 +15,10 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DEEPSegmentTest extends ExtendedUnitTestBase {
+class DEEPSegmentTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testDeepSegment() throws IOException {
+    void testDeepSegment() throws IOException {
         final byte[] packet = loadPacket("DEEPSegment.dump");
 
         final IEXDEEPMessageBlock segment = IEXDEEPMessageBlock.createIEXSegment(packet);

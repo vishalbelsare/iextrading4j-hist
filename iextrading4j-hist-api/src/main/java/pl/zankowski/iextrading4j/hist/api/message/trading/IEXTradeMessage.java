@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.hist.api.message.trading;
 
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
-import pl.zankowski.iextrading4j.hist.api.exception.IEXMessageException;
 import pl.zankowski.iextrading4j.hist.api.field.IEXPrice;
 import pl.zankowski.iextrading4j.hist.api.message.IEXMessage;
 import pl.zankowski.iextrading4j.hist.api.util.IEXByteConverter;
@@ -116,7 +115,7 @@ public class IEXTradeMessage extends IEXMessage {
                 "saleConditionFlag=" + saleConditionFlag +
                 ", timestamp=" + timestamp +
                 ", symbol='" + symbol + '\'' +
-                ", size=" + size +
+                ", size=" + Integer.toUnsignedString(size) +
                 ", price=" + price +
                 ", tradeID=" + tradeID +
                 "} " + super.toString();

@@ -1,13 +1,14 @@
 package pl.zankowski.iextrading4j.hist.api.message.trading.field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class IEXPriceTypeTest {
+class IEXPriceTypeTest {
 
     @Test
-    public void shouldSuccessfullyFindEnumBasedOnCode() {
+    void shouldSuccessfullyFindEnumBasedOnCode() {
         final IEXPriceType value = IEXPriceType.IEX_OFFICIAL_CLOSING_PRICE;
 
         final IEXPriceType result = IEXPriceType.getPriceType(value.getCode());
@@ -15,9 +16,9 @@ public class IEXPriceTypeTest {
         assertThat(result).isEqualTo(value);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionForUnknownCode() {
-        IEXPriceType.getPriceType((byte) 0x11);
+    @Test
+    void shouldThrowAnExceptionForUnknownCode() {
+        assertThrows(IllegalArgumentException.class, () -> IEXPriceType.getPriceType((byte) 0x11));
     }
 
 }

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.hist.test.message;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.hist.api.IEXMessageType;
 import pl.zankowski.iextrading4j.hist.deep.administrative.IEXSecurityEventMessage;
 import pl.zankowski.iextrading4j.hist.deep.administrative.field.IEXSecurityEvent;
@@ -10,10 +10,10 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXSecurityEventMessageTest extends ExtendedUnitTestBase {
+class IEXSecurityEventMessageTest extends ExtendedUnitTestBase {
 
     @Test
-    public void testSecurityEventMessage() throws IOException {
+    void testSecurityEventMessage() throws IOException {
         final byte[] bytes = loadPacket("IEXSecurityEventMessage.dump");
 
         final IEXSecurityEventMessage message = IEXSecurityEventMessage.createIEXMessage(bytes);
