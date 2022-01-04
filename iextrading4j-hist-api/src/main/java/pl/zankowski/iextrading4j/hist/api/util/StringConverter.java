@@ -12,7 +12,7 @@ public class StringConverter {
      * Right padded string with given size
      *
      * @param value
-     * @param byte array size
+     * @param size array size
      * @return
      */
     public static byte[] toString(final String value, final int size) {
